@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <h4 class="modal-title" id="modal-basic-title">Delete todo</h4>
+  <button
+    type="button"
+    class="close"
+    aria-label="Close"
+    (click)="passBack('Cross click')"
+  >
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <h4>{{ todo.title }}</h4>
+  {{ todo.description }}
+</div>
+<div class="modal-footer">
+  <button (click)="passBack('confirm')" type="submit" class="btn btn-danger">
+    Delete
+  </button>
+  <button (click)="passBack('cancel')" type="submit" class="btn btn-primary">
+    Cancel
+  </button>
+</div>

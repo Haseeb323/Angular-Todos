@@ -1,0 +1,32 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input
+        type="text"
+        name="name"
+        class="form-control"
+        [(ngModel)]="person.name"
+        #name="ngModel"
+        placeholder="name"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="name">email</label>
+      <input
+        type="email"
+        [(ngModel)]="person.email"
+        #email="ngModel"
+        class="form-control"
+        name="email"
+        placeholder="email"
+        required
+        id="email"
+      />
+    </div>
+    <button type="submit" [disabled]="form.invalid" class="btn btn-primary">
+      Submit
+    </button>
+  </form>
+</div>

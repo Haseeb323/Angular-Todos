@@ -1,0 +1,54 @@
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Edit todo</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="passBack('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="form-group">
+      <label for="name">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        name="title"
+        [(ngModel)]="editedTodo.title"
+        #title="ngModel"
+        required
+      />
+      <div [hidden]="title.valid || title.pristine" class="alert alert-danger">
+        Title is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="name">Title</label>
+      <input
+        type="text"
+        class="form-control"
+        name="description"
+        [(ngModel)]="editedTodo.description"
+        #description="ngModel"
+        required
+      />
+      <div
+        [hidden]="description.valid || description.pristine"
+        class="alert alert-danger"
+      >
+        Description is required
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="submit" [disabled]="form.invalid" class="btn btn-warning">
+      Save
+    </button>
+    <button (click)="passBack('cancel')" type="submit" class="btn btn-primary">
+      Cancel
+    </button>
+  </div>
+</form>
